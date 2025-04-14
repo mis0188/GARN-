@@ -1,0 +1,24 @@
+Test start time: 2025-04-15 00:22:19
+Batch size: 16, Image size: 224
+Loss weights - alpha: 0.01, beta: 0.01, gamma: 0.01
+================================================================================
+
+
+===== TEST RESULTS SUMMARY =====
+Site A Validation Set:
+  - Accuracy: 0.9293
+  - F1 Score: 0.9292
+  - AUC: 0.9765
+
+Site B Validation Set:
+  - Accuracy: 0.7905
+  - F1 Score: 0.7898
+  - AUC: 0.8277
+
+Combined Validation Set:
+  - Accuracy: 0.8942
+  - F1 Score: 0.8942
+  - AUC: 0.9587
+================================================================================
+
+Test end time: 2025-04-15 00:23:26

@@ -228,7 +228,8 @@ def prepare_covid_datasets(
         covid_ct_val_neg = covid_ct_all_neg[n_train_neg:n_train_neg+n_val_neg]
         covid_ct_test_neg = covid_ct_all_neg[n_train_neg+n_val_neg:]
     
-    # 准备COVID-CT数据集（站点B）
+    # ====================== 准备站点B数据（不进行三倍复制） ======================
+    # 直接使用原始的COVID-CT数据（不复制）
     site_b_train_paths = covid_ct_train_pos + covid_ct_train_neg
     site_b_train_labels = [1] * len(covid_ct_train_pos) + [0] * len(covid_ct_train_neg)
     site_b_train_site_ids = [1] * len(site_b_train_paths)  # 站点ID 1表示COVID-CT
@@ -314,7 +315,7 @@ def prepare_covid_datasets(
     print(f"  验证: 阳性={len(site_a_val_pos)}, 阴性={len(site_a_val_neg)}, 总计={len(site_a_val_paths)}")
     print(f"  测试: 阳性={len(site_a_test_pos)}, 阴性={len(site_a_test_neg)}, 总计={len(site_a_test_paths)}")
     
-    print("COVID-CT 数据集 (站点B):")
+    print("COVID-CT 数据集 (站点B) - 原始数据:")
     print(f"  训练: 阳性={len(covid_ct_train_pos)}, 阴性={len(covid_ct_train_neg)}, 总计={len(site_b_train_paths)}")
     print(f"  验证: 阳性={len(covid_ct_val_pos)}, 阴性={len(covid_ct_val_neg)}, 总计={len(site_b_val_paths)}")
     print(f"  测试: 阳性={len(covid_ct_test_pos)}, 阴性={len(covid_ct_test_neg)}, 总计={len(site_b_test_paths)}")
