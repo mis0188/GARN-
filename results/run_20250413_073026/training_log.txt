@@ -1,0 +1,112 @@
+Training start time: 2025-04-13 07:30:26
+Model: GARN, Learning rate: 0.001, Batch size: 16
+Loss weights - alpha: 0.01, beta: 0.01, gamma: 0.01
+Visualization settings - Basic interval: 5, Detailed interval: 10
+Create detailed viz on improvement: False
+================================================================================
+
+Epoch 1/100
+Training loss: 0.7430, Validation loss: 1.0592631599525126
+Site A - Accuracy: 0.5576, F1: 0.4583, AUC: 0.7982
+Site B - Accuracy: 0.4932, F1: 0.3895, AUC: 0.6423
+Site A best accuracy: 0.5576 (Epoch 1)
+Site B best accuracy: 0.4932 (Epoch 1)
+------------------------------------------------------------
+Epoch 2/100
+Training loss: 0.6407, Validation loss: 0.8018830353166999
+Site A - Accuracy: 0.6970, F1: 0.6966, AUC: 0.7916
+Site B - Accuracy: 0.6216, F1: 0.6219, AUC: 0.7010
+Site A best accuracy: 0.6970 (Epoch 2)
+Site B best accuracy: 0.6216 (Epoch 2)
+------------------------------------------------------------
+Epoch 3/100
+Training loss: 0.6152, Validation loss: 0.5971489457822428
+Site A - Accuracy: 0.7455, F1: 0.7310, AUC: 0.9428
+Site B - Accuracy: 0.5473, F1: 0.5312, AUC: 0.5999
+Site A best accuracy: 0.7455 (Epoch 3)
+Site B best accuracy: 0.6216 (Epoch 2)
+------------------------------------------------------------
+Epoch 4/100
+Training loss: 0.5775, Validation loss: 0.6286841169363115
+Site A - Accuracy: 0.6990, F1: 0.6702, AUC: 0.9224
+Site B - Accuracy: 0.6081, F1: 0.5439, AUC: 0.6775
+Site A best accuracy: 0.7455 (Epoch 3)
+Site B best accuracy: 0.6216 (Epoch 2)
+------------------------------------------------------------
+Epoch 5/100
+Training loss: 0.5821, Validation loss: 0.6932534888023283
+Site A - Accuracy: 0.6081, F1: 0.5394, AUC: 0.9423
+Site B - Accuracy: 0.7230, F1: 0.7010, AUC: 0.7140
+Site A best accuracy: 0.7455 (Epoch 3)
+Site B best accuracy: 0.7230 (Epoch 5)
+------------------------------------------------------------
+Epoch 6/100
+Training loss: 0.5389, Validation loss: 0.5563127380318758
+Site A - Accuracy: 0.7172, F1: 0.6974, AUC: 0.9533
+Site B - Accuracy: 0.5608, F1: 0.5154, AUC: 0.7465
+Site A best accuracy: 0.7455 (Epoch 3)
+Site B best accuracy: 0.7230 (Epoch 5)
+------------------------------------------------------------
+Epoch 7/100
+Training loss: 0.5582, Validation loss: 0.441168433100712
+Site A - Accuracy: 0.8566, F1: 0.8560, AUC: 0.9520
+Site B - Accuracy: 0.6216, F1: 0.5879, AUC: 0.8030
+Site A best accuracy: 0.8566 (Epoch 7)
+Site B best accuracy: 0.7230 (Epoch 5)
+------------------------------------------------------------
+Epoch 8/100
+Training loss: 0.5317, Validation loss: 0.5729284860738894
+Site A - Accuracy: 0.8101, F1: 0.8066, AUC: 0.9464
+Site B - Accuracy: 0.6081, F1: 0.5952, AUC: 0.7138
+Site A best accuracy: 0.8566 (Epoch 7)
+Site B best accuracy: 0.7230 (Epoch 5)
+------------------------------------------------------------
+Epoch 9/100
+Training loss: 0.5395, Validation loss: 0.42074389955619484
+Site A - Accuracy: 0.8707, F1: 0.8699, AUC: 0.9638
+Site B - Accuracy: 0.6757, F1: 0.6548, AUC: 0.8228
+Site A best accuracy: 0.8707 (Epoch 9)
+Site B best accuracy: 0.7230 (Epoch 5)
+------------------------------------------------------------
+Epoch 10/100
+Training loss: 0.5231, Validation loss: 0.4930484494784983
+Site A - Accuracy: 0.7960, F1: 0.7883, AUC: 0.9428
+Site B - Accuracy: 0.7095, F1: 0.6972, AUC: 0.7872
+Site A best accuracy: 0.8707 (Epoch 9)
+Site B best accuracy: 0.7230 (Epoch 5)
+------------------------------------------------------------
+Epoch 11/100
+Training loss: 0.5049, Validation loss: 0.40151680933266154
+Site A - Accuracy: 0.8586, F1: 0.8564, AUC: 0.9544
+Site B - Accuracy: 0.7027, F1: 0.6927, AUC: 0.7846
+Site A best accuracy: 0.8707 (Epoch 9)
+Site B best accuracy: 0.7230 (Epoch 5)
+------------------------------------------------------------
+Epoch 12/100
+Training loss: 0.5082, Validation loss: 0.9714528443973239
+Site A - Accuracy: 0.6343, F1: 0.5773, AUC: 0.9501
+Site B - Accuracy: 0.5676, F1: 0.4889, AUC: 0.7549
+Site A best accuracy: 0.8707 (Epoch 9)
+Site B best accuracy: 0.7230 (Epoch 5)
+------------------------------------------------------------
+Epoch 13/100
+Training loss: 0.5252, Validation loss: 0.4223730109813737
+Site A - Accuracy: 0.8525, F1: 0.8495, AUC: 0.9607
+Site B - Accuracy: 0.7027, F1: 0.7007, AUC: 0.7980
+Site A best accuracy: 0.8707 (Epoch 9)
+Site B best accuracy: 0.7230 (Epoch 5)
+------------------------------------------------------------
+Epoch 14/100
+Training loss: 0.4865, Validation loss: 0.39456194457484456
+Site A - Accuracy: 0.8828, F1: 0.8825, AUC: 0.9506
+Site B - Accuracy: 0.6486, F1: 0.6388, AUC: 0.7716
+Site A best accuracy: 0.8828 (Epoch 14)
+Site B best accuracy: 0.7230 (Epoch 5)
+------------------------------------------------------------
+Epoch 15/100
+Training loss: 0.4857, Validation loss: 0.3415754401102299
+Site A - Accuracy: 0.9030, F1: 0.9028, AUC: 0.9611
+Site B - Accuracy: 0.7095, F1: 0.7096, AUC: 0.8195
+Site A best accuracy: 0.9030 (Epoch 15)
+Site B best accuracy: 0.7230 (Epoch 5)
+------------------------------------------------------------
