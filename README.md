@@ -127,8 +127,7 @@ python -m venv venv
 # 激活环境 (Linux/Mac)
 source venv/bin/activate
 
-# 激活环境 (Windows)
-venv\Scripts\activate
+
 
 安装依赖
 
@@ -144,14 +143,16 @@ tqdm>=4.62.0
 matplotlib>=3.4.0
 networkx>=2.6.0
 seaborn>=0.11.0
+```
 
 📊 数据集
 本项目使用两个公开的 COVID-19 CT 分类数据集：
+
 <div align="center">
 <table>
   <tr>
-    <th width="50%"><img src="assets/sars_cov2_sample.png" width="100%"><br>SARS-CoV-2 CT 数据集</th>
-    <th width="50%"><img src="assets/covid_ct_sample.png" width="100%"><br>COVID-CT 数据集</th>
+    <th width="50%"><img src="./data/2019-novel-Coronavirus-severe-adult-respiratory-dist_2020_International-Jour-p3-89%0.png" width="100%"><br>SARS-CoV-2 CT 数据集</th>
+    <th width="50%"><img src="./data/Covid (1).png" width="100%"><br>COVID-CT 数据集</th>
   </tr>
   <tr>
     <td>包含来自 120 名患者的 2482 张 CT 图像</td>
@@ -159,148 +160,4 @@ seaborn>=0.11.0
   </tr>
 </table>
 </div>
-数据集结构
-数据集应组织为以下结构：
-datasets/
-├── SARS-COV-2/
-│   ├── COVID/               # COVID-19 阳性样本
-│   └── non-COVID/           # COVID-19 阴性样本
-└── COVID-CT/
-    ├── Data-split/
-    │   ├── COVID/           # 训练/验证/测试集分割文件
-    │   └── NonCOVID/        # 训练/验证/测试集分割文件
-    └── Images-processed/
-        ├── CT_COVID/        # COVID-19 阳性样本
-        └── CT_NonCOVID/     # COVID-19 阴性样本
 
-▶️ 使用方法
-📈 训练模型
-bashpython train.py \
-    --covid_ct_dir datasets/COVID-CT \
-    --sars_cov2_dir datasets/SARS-COV-2 \
-    --batch_size 16 \
-    --epochs 100 \
-    --lr 1e-3 \
-    --alpha 0.1 \
-    --beta 0.1 \
-    --gamma 0.1 \
-    --dropout_rate 0.2 \
-    --use_mixup \
-    --save_dir results
-<details>
-<summary>参数说明</summary>
-参数描述默认值--covid_ct_dirCOVID-CT 数据集目录---sars_cov2_dirSARS-CoV-2 数据集目录---batch_size批大小16--epochs训练周期数100--lr学习率1e-3--alpha对比损失权重0.1--beta三元组损失权重0.1--gamma中心对齐损失权重0.1--dropout_rateDropout 比率0.2--use_mixup启用 MixUp 数据增强False--use_cutmix启用 CutMix 数据增强False--save_dir保存结果的目录results
-</details>
-🔍 测试与可视化
-bashpython test.py \
-    --site_a_model_path results/run_YYYYMMDD_HHMMSS/checkpoints/garn_best_site_a.pth \
-    --site_b_model_path results/run_YYYYMMDD_HHMMSS/checkpoints/garn_best_site_b.pth \
-    --val_model_path results/run_YYYYMMDD_HHMMSS/checkpoints/garn_best_val.pth \
-    --covid_ct_dir datasets/COVID-CT \
-    --sars_cov2_dir datasets/SARS-COV-2 \
-    --output_dir test_results
-测试脚本将产生以下可视化结果：
-<div align="center">
-<table>
-  <tr>
-    <td><img src="assets/embeddings_viz.png" width="100%"><br><b>嵌入空间可视化</b></td>
-    <td><img src="assets/confusion_matrix.png" width="100%"><br><b>混淆矩阵</b></td>
-  </tr>
-  <tr>
-    <td><img src="assets/roc_curve.png" width="100%"><br><b>ROC 曲线</b></td>
-    <td><img src="assets/graph_viz.png" width="100%"><br><b>图结构可视化</b></td>
-  </tr>
-</table>
-</div>
-
-📈 结果与性能
-在两个数据集上的性能（以 AUC 为指标）：
-
-SARS-CoV-2 数据集：97.39% AUC
-COVID-CT 数据集：83.94% AUC
-
-与基准方法的对比
-<div align="center">
-<table>
-  <tr>
-    <th rowspan="2">方法</th>
-    <th colspan="2">AUC (%)</th>
-  </tr>
-  <tr>
-    <th>SARS-CoV-2</th>
-    <th>COVID-CT</th>
-  </tr>
-  <tr>
-    <td>COVID-Net (单站点)</td>
-    <td>84.08</td>
-    <td>71.09</td>
-  </tr>
-  <tr>
-    <td>简单联合学习</td>
-    <td>74.78</td>
-    <td>68.12</td>
-  </tr>
-  <tr>
-    <td><b>GARN (我们的方法)</b></td>
-    <td><b>97.39</b></td>
-    <td><b>83.94</b></td>
-  </tr>
-</table>
-</div>
-<div align="center">
-  <img src="assets/performance_comparison.png" alt="Performance Comparison" width="600"/>
-</div>
-
-📁 项目结构
-garn-covid-ct/
-├── models/
-│   ├── __init__.py
-│   ├── garn.py              # GARN 模型实现
-│   ├── covid_net.py         # 重设计的 COVID-Net 骨干网络
-│   └── graph_modules.py     # 图卷积模块实现
-├── utils/
-│   ├── __init__.py
-│   └── losses.py            # 损失函数实现
-├── datasets/
-│   ├── __init__.py
-│   └── covid_dataset.py     # 数据集加载与预处理
-├── train.py                 # 模型训练脚本
-├── test.py                  # 测试与可视化脚本
-├── requirements.txt         # 项目依赖
-└── README.md                # 本文档
-
-📚 引用
-如果您在研究中使用了本项目，请引用我们的论文：
-bibtex@inproceedings{author2023garn,
-  title={Graph Alignment with Redesigned Net for COVID-19 CT Classification},
-  author={Author, A. and Author, B.},
-  booktitle={Proceedings of ACM Multimedia},
-  year={2023}
-}
-
-🙏 致谢
-我们感谢 SARS-CoV-2 CT 和 COVID-CT 数据集的作者提供的宝贵数据资源。本项目的实现借鉴了多种图神经网络和对比学习的优秀工作。
-
-📄 许可证
-本项目采用 MIT 许可证。详见 LICENSE 文件。
-
-📧 联系方式
-如有任何问题，请联系：email@example.com
-
-<div align="center">
-  <sub>Built with ❤️ by Research Team</sub>
-</div>
-```
-此 Markdown 格式的 README 包含了多种美化元素：
-
-居中的标题和徽章
-分区导航链接
-表情符号增强可读性
-详细的表格和图片展示
-可折叠的细节部分
-清晰的代码块和格式
-整洁划分的章节
-引人注目的表格和图形
-色彩和排版的视觉层次
-
-这些元素共同创建了一个专业、美观且信息丰富的项目文档
